@@ -1,8 +1,8 @@
-import json
-import random
-import time
+import json, os, random, time
 import paho.mqtt.client as mqtt
+from dotenv import load_dotenv
 
+load_dotenv()
 # Unique Identifiers for sensors
 UNIQUE_IDENTIFIERS = [
      "AnotherSensor1",
@@ -18,8 +18,7 @@ UNIQUE_IDENTIFIERS = [
 ]
 
 # MQTT Configuration
-MQTT_BROKER = "157.173.101.159"  # Replace with your MQTT broker address
-# MQTT_BROKER = "localhost"  # Replace with your MQTT broker address
+MQTT_BROKER = os.getenv('MQTT_BROKER')
 MQTT_PORT = 1883
 
 # Global variables to hold sensor states
